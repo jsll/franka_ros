@@ -11,10 +11,14 @@
     <!-- Is the robot being simulated in gazebo?" -->
     <xacro:arg name="gazebo" default="false" />
 
+    <xacro:include filename="$(find franka_description)/robots/common/table.xacro"/>
+    <xacro:table ns="$(arg arm_id)"/>
+
     <xacro:include filename="$(find franka_description)/robots/common/utils.xacro" />
     <xacro:include filename="$(find franka_description)/robots/common/franka_arm.xacro" />
+    <!--xacro:include filename="$(find franka_description)/robots/common/franka_arm.xacro"/-->
 
-    <xacro:franka_arm arm_id="${arm_id}" safety_distance="0.03" gazebo="$(arg gazebo)" joint_limits="${joint_limits}"/>
+    <xacro:franka_arm arm_id="${arm_id}" xyz="0 0 0.00" safety_distance="0.03" gazebo="$(arg gazebo)" joint_limits="${joint_limits}" connected_to="$(arg arm_id)_table_link"/>
 
     <xacro:if value="$(arg hand)">
       <xacro:include filename="$(find franka_description)/robots/common/franka_hand.xacro"/>

@@ -116,6 +116,57 @@ dual_arm_cartesian_impedance_example_controller:
             - panda_2_joint5
             - panda_2_joint6
             - panda_2_joint7
+kth_cartesian_velocity_effort_interface_controller:
+    type: franka_example_controllers/KthCartesianVelocityEffortInterfaceController
+    arm_id: $(arg arm_id)
+    joint_names:
+        - $(arg arm_id)_joint1
+        - $(arg arm_id)_joint2
+        - $(arg arm_id)_joint3
+        - $(arg arm_id)_joint4
+        - $(arg arm_id)_joint5
+        - $(arg arm_id)_joint6
+        - $(arg arm_id)_joint7
+    Kp:
+        - 400
+        - 400
+        - 400
+        - 30
+        - 30
+        - 30
+    impedance: 1
+    static: 1
+    Kpos: 250.0
+    Kor: 150.0
+    Mdpos: 1.0
+    Mdor: 1.0
+
+kth_cartesian_pose_effort_interface_controller:
+    type: franka_example_controllers/KthCartesianPoseEffortInterfaceController
+    arm_id: $(arg arm_id)
+    joint_names:
+        - $(arg arm_id)_joint1
+        - $(arg arm_id)_joint2
+        - $(arg arm_id)_joint3
+        - $(arg arm_id)_joint4
+        - $(arg arm_id)_joint5
+        - $(arg arm_id)_joint6
+        - $(arg arm_id)_joint7
+    Kp:
+        - 400
+        - 400
+        - 400
+        - 30
+        - 30
+        - 30
+    impedance: 1
+    static: 1
+    Kpos: 250.0
+    Kor: 150.0
+    Mdpos: 1.0
+    Mdor: 1.0
+
+
 
 teleop_joint_pd_example_controller:
    type: franka_example_controllers/TeleopJointPDExampleController

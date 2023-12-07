@@ -81,6 +81,12 @@ add_library(franka_example_controllers
   src/dual_arm_cartesian_impedance_example_controller.cpp
   src/teleop_joint_pd_example_controller.cpp
   src/joint_wall.cpp
+  src/kth_cartesian_velocity_effort_interface_controller.cpp
+  src/Planner_vel.cpp
+  src/LinearProfile.cpp
+  src/kth_cartesian_pose_effort_interface_controller.cpp
+  src/Planner.cpp
+  src/PolinomialProfile.cpp
 )
 
 add_dependencies(franka_example_controllers

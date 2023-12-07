@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="table">
+  <!-- safety_distance: Minimum safety distance in [m] by which the collision volumes are expanded and which is enforced during robot motions -->
+  <xacro:macro name="table" params="connected_to:='' ns:='' rpy:='0 0 0' xyz:='0 0 0' safety_distance:=0">
+
+    <material name="tGreen">
+    <color rgba="${80/255} ${180/255} ${80/255} 0.5"/>
+    </material>
+
+    <link name="${ns}_table_link">
+      <visual>
+        <origin xyz="0.0 0.0 -0.00" rpy="0 0 0"/>
+        <geometry>
+          <box size="3 3 0.01"/>
+        </geometry>
+        <material name="tGreen"/>
+      </visual>
+      <collision>
+        <origin xyz="0.0 0.0 -0.00" rpy="0 0 0"/>
+        <geometry>
+          <box size="3 3 0.01"/>
+        </geometry>
+      </collision>
+
+      <visual>
+        <origin xyz="-0.8 0.0 0.0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.04 3 3"/>
+        </geometry>
+        <material name="tGreen"/>
+      </visual>
+      <collision>
+        <origin xyz="-0.8 0.0 0.0" rpy="0 0 0"/>
+        <geometry>
+          <box size="0.04 3 3"/>
+        </geometry>
+      </collision>
+    </link>
+
+  </xacro:macro>
+</robot>
